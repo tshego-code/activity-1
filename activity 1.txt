@@ -1,0 +1,39 @@
+# Assignment 1: Design Your Own Class 🏗️
+
+class Smartphone:
+    # Constructor (initializes object with unique values)
+    def __init__(self, brand, model, battery_life):
+        self.brand = brand
+        self.model = model
+        self.battery_life = battery_life   # in hours
+    
+    # Method to simulate making a call
+    def make_call(self, number):
+        return f"{self.brand} {self.model} is calling {number}..."
+    
+    # Method to show battery status
+    def battery_status(self):
+        return f"{self.model} has {self.battery_life} hours of battery left."
+
+
+# Inheritance example: GamingPhone is a type of Smartphone
+class GamingPhone(Smartphone):
+    def __init__(self, brand, model, battery_life, gpu_power):
+        # Call parent constructor
+        super().__init__(brand, model, battery_life)
+        self.gpu_power = gpu_power
+    
+    # Override battery_status (Polymorphism)
+    def battery_status(self):
+        return f"{self.model} (Gaming Edition) - Battery left: {self.battery_life} hrs ⚡ GPU Power: {self.gpu_power}."
+
+
+# Example usage
+phone1 = Smartphone("Samsung", "Galaxy S24", 20)
+phone2 = GamingPhone("Asus", "ROG Phone 7", 15, "Ultra")
+
+print(phone1.make_call("083-123-4567"))
+print(phone1.battery_status())
+
+print(phone2.make_call("071-987-6543"))
+print(phone2.battery_status())
